@@ -1,32 +1,39 @@
-# Build Report — BA-1.0.0-oneshot
+# Barnyard Abduction — Professional Rebuild Report
 
-## Completed
-A single-file offline working build was produced from the raw visual-upgrade prototype and the locked game specifications. It includes the ten-map campaign framework and the integrated gameplay/meta systems requested by the one-shot directive.
+## Outcome
 
-## Canonical working file
-`/Games/ChatGPT Barnyard Abduction/barnyard-abduction.html`
-Build ID: `BA-1.0.0-oneshot`
-Size: 687,428 bytes
-SHA-256: `121cfba93e4d130c65062099709a2c0eb3d3c984319425463e5121c13be15512`
+The full ten-level campaign has been restored as the main game and rebuilt visually without removing the established gameplay loop, controls, level order, stars, unlock progression, coin economy, upgrades, settings, cheats, audio, or local save behavior. The previous high-detail Rolling Acres vertical slice is preserved as an optional bonus challenge.
 
-## Major systems delivered
-UFO/camera/scout/radar; beam; animals; opposition/farmer abduction; missions/campaign; scoring/combos; five upgrades; HUD/UI; 25 cheats; localStorage save schema v2; procedural audio; environmental/weather hooks; accessibility/help; static self-test.
+## Step-by-step implementation
 
-## Visual result
-The build uses the brighter visual-upgrade procedural asset base rather than the 17 KB prototype. Farm hero structures have layered construction, red barn/blue-roof farmhouse language, rounded vegetation, white fence, pond/windmill/field landmarks, and a metallic cyan-lit UFO/beam/HUD direction.
+1. Inspected the supplied canonical farm, animal lineup, map-layout, UFO, cow, barn, and cinematic key-art references.
+2. Compared the current hosted vertical slice with the complete Dropbox campaign source and restored the complete ten-map runtime to `/game.html`.
+3. Preserved every campaign rule: target goals, timers, defender scaling, scoring, combos, mission ratings, stars, coins, unlocks, upgrades, pause cheats, settings, and retry/next-mission flow.
+4. Rebuilt the visual foundation with a gradient sky dome, textured terrain, surface variation, map-specific sun color, atmospheric fog, cloud drift, distant scenery, and color-managed ACES lighting.
+5. Rebuilt hero assets with a correct gambrel barn roof and trim, detailed facade, loft, cupola, vane, barrels and hay; a layered UFO hull, dome, pilot, emissive core, panel lights and antennas; and an animated shader tractor beam with ground ring, dust, and light.
+6. Expanded all maps with environment-specific dressing: silos, park elements, campfires, road markings, rooftop equipment, guard towers, runway markings, containers, boats, solar arrays, launch gantry, additional vegetation, rocks, vehicles, and props.
+7. Added a live radar, altitude readout, touch rise/lower controls, keyboard altitude controls, safer scout framing, input-release handling, safe-area responsive HUD layout, and WebGL context-loss recovery.
+8. Added mobile-aware pixel-density caps, shadow tiers, adaptive runtime quality reduction, reduced-motion support, geometry/material cleanup, and performance status reporting.
+9. Preserved the prior HD farm build at `/farm-hd.html` and added two-way navigation between it and the campaign.
+10. Added automated coverage for all ten map names, campaign builders, radar, altitude controls, adaptive rendering, bonus mode, artwork, and the production web shell.
 
-## Tests performed
-- `node --check` on the custom JavaScript: PASS.
-- Python HTML parsing: PASS.
-- Static release matrix assertions: PASS.
-- SHA-256 and file-size capture: PASS.
-- Chromium/WebGL smoke test: attempted, but the container Chromium installation could not initialize a graphics backend, so no runtime rendering/FPS claim is made.
+## Performance approach
 
-## Documentation updated
-README.md, FEATURE_REGISTRY.md, CHANGELOG.md, PROTOTYPE_EXPERIMENTS.md, NEXT_TASK.md, REVIEW_QUEUE.md, BUILD_REPORT.md in the ChatGPT working scope.
+- Auto quality caps device pixel ratio more aggressively on phones and tablets.
+- Battery Saver disables expensive shadows and antialiasing.
+- Auto mode samples frame rate and lowers pixel density once when sustained performance drops below the target.
+- Repeated standard materials and generated textures are cached; transient world geometry is disposed between missions.
+- Decorative density is procedural and bounded, with simple low-poly silhouettes and no external runtime model downloads.
 
-## Known limitations
-No verified iPhone Safari run or measured FPS in this environment. Visual clipping, actual touch feel, Web Audio unlock behavior and long-session resource growth require device review. Studio documents outside `/Games/ChatGPT Barnyard Abduction` were intentionally not modified because the owner restricted ChatGPT work to the isolated working folder.
+## Verification
 
-## Owner decision needed
-None for the working build. Promotion to the original project requires explicit owner approval after review.
+- Inline JavaScript syntax validation.
+- Production build and integration tests: `npm test`.
+- ESLint: `npm run lint`.
+- Browser QA: responsive desktop plus iPhone-sized touch layout, campaign launch, rendering, HUD, radar, altitude controls, scout, pause, and bonus-mode navigation.
+
+Physical-device Safari testing is still recommended before an App Store-style release; the available QA environment validates an iPhone-sized mobile browser rather than physical iPhone hardware.
+
+## Branch
+
+`codex/3d-webapp-upgrade-2026-08-24`

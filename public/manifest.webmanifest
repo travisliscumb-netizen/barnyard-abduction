@@ -1,0 +1,18 @@
+{
+  "name": "Barnyard Abduction",
+  "short_name": "Abduction",
+  "description": "Beam. Boost. Escape.",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#071018",
+  "theme_color": "#071018",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
