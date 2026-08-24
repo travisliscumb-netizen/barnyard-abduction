@@ -38,10 +38,39 @@ test("ships the complete playable game surface", async () => {
 
   assert.match(html, /Barnyard Abduction/i);
   assert.match(html, /THREE\.WebGLRenderer/);
-  assert.match(html, /function populateAnimals\(\)/);
-  assert.match(html, /Auto','hd','balanced','battery/i);
-  assert.match(html, /window\.__ready = true/);
+  assert.match(html, /const MAPS=\[/);
+  assert.match(html, /Space Launch Complex/);
+  assert.match(html, /function buildLaunch\(\)/);
+  assert.match(html, /function drawRadar\(/);
+  assert.match(html, /riseBtn/);
+  assert.match(html, /function adaptPerformance\(/);
+  assert.match(html, /3D graphics unavailable/);
+  assert.match(html, /@media\(max-width:560px\)/);
+  assert.match(html, /safe-area-inset-bottom/);
+  assert.match(html, /window\.__ready=true/);
   assert.match(html, /Tractor Beam/i);
+});
+
+test("preserves all ten campaign maps and the HD farm bonus", async () => {
+  const campaign = await readFile(new URL("../public/game.html", import.meta.url), "utf8");
+  const farm = await readFile(new URL("../public/farm-hd.html", import.meta.url), "utf8");
+  const names = [
+    "Farm",
+    "Small Town",
+    "Campground",
+    "Rural Town",
+    "City",
+    "Military Base",
+    "Coastal Harbor",
+    "Desert Research Facility",
+    "Snowy Mountain Area",
+    "Space Launch Complex",
+  ];
+
+  for (const name of names) assert.match(campaign, new RegExp(name));
+  assert.match(campaign, /farm-hd\.html/);
+  assert.match(farm, /Return to 10-Mission Campaign/);
+  assert.match(farm, /function populateAnimals\(\)/);
 });
 
 test("includes high-detail concept and launch artwork", async () => {

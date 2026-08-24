@@ -1,32 +1,31 @@
 # Barnyard Abduction
 
-A touch-first 3D arcade game built around one polished vertical slice: pilot a UFO over Rolling Acres Farm, lock the tractor beam onto six animal species, dodge the farmer, and complete the abduction before time expires.
+A touch-first 3D arcade campaign: pilot a UFO through ten progressively harder environments, capture the required targets, evade defenders, earn stars, and upgrade the craft. The visual rebuild uses a bright stylized cartoon-realism direction while keeping the original controls, missions, progression, upgrades, settings, and save data.
 
 ## Play
 
-- Touch: left stick to fly, hold **Tractor Beam** to abduct, **Boost** for speed, and **Scout** for the full-farm camera.
-- Keyboard: `WASD` or arrow keys to fly, `Space` to beam, `Shift` to boost, `E` to scout, and `Q`/`R` to change altitude.
-- The HUD includes score, combo scoring, mission timer, hull, target reticle, and radar.
+- Touch: left stick to fly; hold **Beam**, **Boost**, or **Scout**; use ▲/▼ to change altitude.
+- Keyboard: `WASD` or arrows to fly, `Space` to beam, `Shift` to boost, `E` to scout, and `Q`/`R` to descend/ascend.
+- Campaign: Farm, Small Town, Campground, Rural Town, City, Military Base, Coastal Harbor, Desert Research Facility, Snowy Mountain Area, and Space Launch Complex.
+- Bonus: the menu links to a high-detail Rolling Acres farm challenge at `/farm-hd.html`.
 
-## Visual and game systems
+## Rebuild highlights
 
-- Detailed procedural UFO, barn, farmhouse, windmill, pond, field, road network, fencing, trees, and distant scenery.
-- Eighteen animals across cow, horse, sheep, pig, chicken, and goat species.
-- Physically based materials, ACES tone mapping, sRGB output, soft shadows, beam lighting, particles, impact flashes, and adaptive pixel density.
-- Auto, HD, Balanced, and Battery quality modes.
-- Touch-first controls with keyboard fallbacks.
-- Synthesized launch, beam, capture, impact, and result audio with a mute toggle.
-- Reliable replay reset and locally persisted best score.
+- Ten distinct, dressed 3D maps with map-specific structures, roads, vegetation, props, targets, and defenders.
+- Rebuilt gambrel barn, layered UFO, animated tractor beam, textured terrain, atmospheric sky, cloud layer, lighting, shadows, particles, and richer silhouettes.
+- Mission radar, altitude readout, scout overview, shield/alert feedback, touch-safe controls, and responsive safe-area layout.
+- Persistent campaign stars, unlocks, coins, upgrades, settings, and local saves.
+- Auto, HD, and Battery Saver rendering with mobile-aware pixel density and automatic runtime downshifting.
+- Installable web app shell and embedded Three.js runtime for reliable static delivery.
 
 ## App structure
 
-- `app/page.tsx` — full-screen game host and cinematic boot layer.
-- `public/game.html` — self-contained Three.js game runtime.
+- `app/page.tsx` — full-screen game host and launch layer.
+- `public/game.html` — rebuilt ten-mission campaign.
+- `public/farm-hd.html` — high-detail farm bonus challenge.
 - `public/og.png` — launch/social key art.
-- `public/assets/concepts/` — conversion-ready cow, UFO, and barn model references.
-- `public/assets/reference/` — canonical Dropbox reference art used for layout and style alignment.
-- `docs/SOURCE_MANIFEST.md` — source discovery and provenance summary.
-- `BUILD_REPORT.md` — implementation and verification report.
+- `public/assets/` — supplied reference and 3D-conversion concept art.
+- `BUILD_REPORT.md` — detailed implementation and verification report.
 
 ## Development
 
@@ -43,5 +42,3 @@ Verification:
 npm run lint
 npm test
 ```
-
-The app is packaged with Vinext for OpenAI Sites. The game itself remains a static route at `/game.html`, wrapped by the main application route for metadata, loading state, and installable-web-app behavior.

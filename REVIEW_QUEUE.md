@@ -2,10 +2,10 @@
 
 ## Ready for review
 
-- Mobile landscape play feel and joystick dead zone.
-- UFO, barn, and creature silhouettes in both camera modes.
-- Farmer pressure versus the 150-second mission timer.
-- Auto quality selection on lower-end phones.
+- Physical iPhone Safari play feel and joystick dead zone.
+- UFO, barn, creature, prop, and building silhouettes across all ten maps.
+- Defender pressure and timer balance across the complete campaign.
+- Auto quality selection on representative lower-end phones.
 - Audio balance for beam hum, capture cue, and hit cue.
 
 ## Verification already complete
@@ -15,6 +15,7 @@
 - Inline game script parse check.
 - Root-route metadata integration test.
 - Game-surface and production-artifact tests.
+- Responsive iPhone-sized browser pass for campaign, HUD, radar, altitude, scout, pause, and bonus navigation.
 
 ## External follow-up
 

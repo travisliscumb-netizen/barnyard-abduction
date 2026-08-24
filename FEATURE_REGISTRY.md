@@ -2,16 +2,18 @@
 
 | Feature | Status | Evidence |
 |---|---|---|
-| Rolling Acres 3D farm | Complete | `public/game.html` |
-| Touch + keyboard flight | Complete | Runtime input section |
-| Tractor beam targeting | Complete | Beam acquisition, lift, capture, particles |
-| Six animal species | Complete | Cow, horse, sheep, pig, chicken, goat builders |
-| Farmer detection and attack | Complete | Farmer AI and projectile systems |
-| Mission HUD | Complete | Score, combo, timer, hull, radar, reticle |
-| Replay reset | Complete | Herd/transient-state rebuild in `startMission()` |
-| Adaptive quality modes | Complete | Auto, HD, Balanced, Battery |
-| Game audio | Complete | Self-contained Web Audio effects and toggle |
-| Social/launch art | Complete | `public/og.png` |
-| Installable web shell | Complete | Vinext host + web manifest |
-| Imported to3D glTF heroes | Blocked externally | Conversion references staged; service returned backend 400 |
-| Remaining campaign maps | Deferred | Preserve until each can meet Map 1 quality bar |
+| Ten-map linear campaign | Complete | `MAPS` and ten environment builders in `public/game.html` |
+| Stars, unlocks, coins, upgrades | Complete | Save, finish, mission menu, and upgrade systems |
+| Touch + keyboard flight | Complete | Stick, held actions, keyboard, reset handling |
+| Tractor beam capture | Complete | Shader beam, lock, lift, capture, combo systems |
+| Altitude control | Complete | Touch ▲/▼ and keyboard `Q`/`R` |
+| Radar + scout overview | Complete | Canvas radar and full-map scout camera |
+| Distinct targets and defenders | Complete | Map-specific target and enemy builders |
+| Rebuilt environments | Complete | Ten dressed maps with specialized props |
+| Rebuilt barn and UFO | Complete | Gambrel roof, facade details, layered craft and beam |
+| Adaptive mobile rendering | Complete | DPR caps, shadow tiers, FPS downshift |
+| Safe-area responsive HUD | Complete | Portrait/landscape mobile CSS |
+| Persistent settings and saves | Complete | Guarded localStorage state |
+| HD farm bonus mode | Complete | `public/farm-hd.html` |
+| Installable web shell | Complete | Vinext host + manifest |
+| Imported to3D glTF heroes | Fallback active | Concept references retained; procedural optimized heroes ship reliably |

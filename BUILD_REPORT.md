@@ -1,39 +1,38 @@
-# Barnyard Abduction — 3D Web App Build Report
+# Barnyard Abduction — Professional Rebuild Report
 
 ## Outcome
 
-The strongest existing prototype was rebuilt as a production-shaped, touch-first web game centered on the high-fidelity Rolling Acres Farm vertical slice. The project intentionally favors depth, responsiveness, and visual clarity over exposing the older shallow ten-map shell.
+The full ten-level campaign has been restored as the main game and rebuilt visually without removing the established gameplay loop, controls, level order, stars, unlock progression, coin economy, upgrades, settings, cheats, audio, or local save behavior. The previous high-detail Rolling Acres vertical slice is preserved as an optional bonus challenge.
 
-## Source consolidation
+## Step-by-step implementation
 
-- Searched and inspected the three matching Dropbox project trees: `/Barnyard Abduction Studio`, `/Games/Barnyard Abduction`, and `/Games/ChatGPT Barnyard Abduction`.
-- Retrieved 129 matching files and compared the complete historical builds, current project documentation, canonical art, and milestone notes.
-- Used the Map 1 rebuild from the linked GitHub development lineage as the gameplay baseline because it already contained the strongest farm simulation, creature set, camera behavior, collision model, farmer AI, and touch controls.
-- Excluded unrelated backup and temporary test files from the product source.
+1. Inspected the supplied canonical farm, animal lineup, map-layout, UFO, cow, barn, and cinematic key-art references.
+2. Compared the current hosted vertical slice with the complete Dropbox campaign source and restored the complete ten-map runtime to `/game.html`.
+3. Preserved every campaign rule: target goals, timers, defender scaling, scoring, combos, mission ratings, stars, coins, unlocks, upgrades, pause cheats, settings, and retry/next-mission flow.
+4. Rebuilt the visual foundation with a gradient sky dome, textured terrain, surface variation, map-specific sun color, atmospheric fog, cloud drift, distant scenery, and color-managed ACES lighting.
+5. Rebuilt hero assets with a correct gambrel barn roof and trim, detailed facade, loft, cupola, vane, barrels and hay; a layered UFO hull, dome, pilot, emissive core, panel lights and antennas; and an animated shader tractor beam with ground ring, dust, and light.
+6. Expanded all maps with environment-specific dressing: silos, park elements, campfires, road markings, rooftop equipment, guard towers, runway markings, containers, boats, solar arrays, launch gantry, additional vegetation, rocks, vehicles, and props.
+7. Added a live radar, altitude readout, touch rise/lower controls, keyboard altitude controls, safer scout framing, input-release handling, safe-area responsive HUD layout, and WebGL context-loss recovery.
+8. Added mobile-aware pixel-density caps, shadow tiers, adaptive runtime quality reduction, reduced-motion support, geometry/material cleanup, and performance status reporting.
+9. Preserved the prior HD farm build at `/farm-hd.html` and added two-way navigation between it and the campaign.
+10. Added automated coverage for all ten map names, campaign builders, radar, altitude controls, adaptive rendering, bonus mode, artwork, and the production web shell.
 
-## Major upgrades
+## Performance approach
 
-- Cinematic key-art launch and social presentation.
-- Physically based farm, creature, glass, water, and metal materials.
-- ACES tone mapping, sRGB output, stronger hero lighting, UFO core/underside detailing, beam point light, and screen-space feedback.
-- Barn facade depth, cupola detail, and weather vane.
-- Adaptive Auto/HD/Balanced/Battery renderer presets.
-- Self-contained Web Audio effects and persistent mute preference.
-- Persistent best score.
-- Full herd, farmer, UFO, projectile, and particle reset on replay.
-- Installable web manifest and mobile viewport treatment.
-- Conversion-ready high-detail cow, UFO, and barn concept images under `assets/concepts/`.
-
-## 3D conversion pipeline
-
-The three conversion references were committed to the feature branch and sent to the selected to3D workflow as high-quality glTF/game jobs. URL validation succeeded, while the generation endpoint returned a backend `400 Failed to generate 3D model` during this run. The live game therefore uses its polished procedural Three.js hero models as the reliable fallback; the references and insertion points remain ready for generated glTF replacements when the service accepts jobs again.
+- Auto quality caps device pixel ratio more aggressively on phones and tablets.
+- Battery Saver disables expensive shadows and antialiasing.
+- Auto mode samples frame rate and lowers pixel density once when sustained performance drops below the target.
+- Repeated standard materials and generated textures are cached; transient world geometry is disposed between missions.
+- Decorative density is procedural and bounded, with simple low-poly silhouettes and no external runtime model downloads.
 
 ## Verification
 
-- Inline game JavaScript parse check: passed.
-- Vinext production build: passed.
-- ESLint: passed.
-- Node integration and artifact tests: passed.
+- Inline JavaScript syntax validation.
+- Production build and integration tests: `npm test`.
+- ESLint: `npm run lint`.
+- Browser QA: responsive desktop plus iPhone-sized touch layout, campaign launch, rendering, HUD, radar, altitude controls, scout, pause, and bonus-mode navigation.
+
+Physical-device Safari testing is still recommended before an App Store-style release; the available QA environment validates an iPhone-sized mobile browser rather than physical iPhone hardware.
 
 ## Branch
 

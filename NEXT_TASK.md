@@ -10,4 +10,4 @@ When the to3D generation endpoint resumes accepting jobs:
 4. Verify silhouettes in chase and scout cameras at HD, Balanced, and Battery settings.
 5. Record frame-time and memory results before enabling imported models by default.
 
-Do not expand to another map until the converted hero assets meet the established Map 1 visual and performance bar.
+Keep the procedural models as automatic fallbacks, and enable imported assets only after the ten-map campaign passes the same mobile frame-time and memory checks.
