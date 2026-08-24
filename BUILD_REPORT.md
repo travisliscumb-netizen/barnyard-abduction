@@ -1,32 +1,40 @@
-# Build Report — BA-1.0.0-oneshot
+# Barnyard Abduction — 3D Web App Build Report
 
-## Completed
-A single-file offline working build was produced from the raw visual-upgrade prototype and the locked game specifications. It includes the ten-map campaign framework and the integrated gameplay/meta systems requested by the one-shot directive.
+## Outcome
 
-## Canonical working file
-`/Games/ChatGPT Barnyard Abduction/barnyard-abduction.html`
-Build ID: `BA-1.0.0-oneshot`
-Size: 687,428 bytes
-SHA-256: `121cfba93e4d130c65062099709a2c0eb3d3c984319425463e5121c13be15512`
+The strongest existing prototype was rebuilt as a production-shaped, touch-first web game centered on the high-fidelity Rolling Acres Farm vertical slice. The project intentionally favors depth, responsiveness, and visual clarity over exposing the older shallow ten-map shell.
 
-## Major systems delivered
-UFO/camera/scout/radar; beam; animals; opposition/farmer abduction; missions/campaign; scoring/combos; five upgrades; HUD/UI; 25 cheats; localStorage save schema v2; procedural audio; environmental/weather hooks; accessibility/help; static self-test.
+## Source consolidation
 
-## Visual result
-The build uses the brighter visual-upgrade procedural asset base rather than the 17 KB prototype. Farm hero structures have layered construction, red barn/blue-roof farmhouse language, rounded vegetation, white fence, pond/windmill/field landmarks, and a metallic cyan-lit UFO/beam/HUD direction.
+- Searched and inspected the three matching Dropbox project trees: `/Barnyard Abduction Studio`, `/Games/Barnyard Abduction`, and `/Games/ChatGPT Barnyard Abduction`.
+- Retrieved 129 matching files and compared the complete historical builds, current project documentation, canonical art, and milestone notes.
+- Used the Map 1 rebuild from the linked GitHub development lineage as the gameplay baseline because it already contained the strongest farm simulation, creature set, camera behavior, collision model, farmer AI, and touch controls.
+- Excluded unrelated backup and temporary test files from the product source.
 
-## Tests performed
-- `node --check` on the custom JavaScript: PASS.
-- Python HTML parsing: PASS.
-- Static release matrix assertions: PASS.
-- SHA-256 and file-size capture: PASS.
-- Chromium/WebGL smoke test: attempted, but the container Chromium installation could not initialize a graphics backend, so no runtime rendering/FPS claim is made.
+## Major upgrades
 
-## Documentation updated
-README.md, FEATURE_REGISTRY.md, CHANGELOG.md, PROTOTYPE_EXPERIMENTS.md, NEXT_TASK.md, REVIEW_QUEUE.md, BUILD_REPORT.md in the ChatGPT working scope.
+- Cinematic key-art launch and social presentation.
+- Physically based farm, creature, glass, water, and metal materials.
+- ACES tone mapping, sRGB output, stronger hero lighting, UFO core/underside detailing, beam point light, and screen-space feedback.
+- Barn facade depth, cupola detail, and weather vane.
+- Adaptive Auto/HD/Balanced/Battery renderer presets.
+- Self-contained Web Audio effects and persistent mute preference.
+- Persistent best score.
+- Full herd, farmer, UFO, projectile, and particle reset on replay.
+- Installable web manifest and mobile viewport treatment.
+- Conversion-ready high-detail cow, UFO, and barn concept images under `assets/concepts/`.
 
-## Known limitations
-No verified iPhone Safari run or measured FPS in this environment. Visual clipping, actual touch feel, Web Audio unlock behavior and long-session resource growth require device review. Studio documents outside `/Games/ChatGPT Barnyard Abduction` were intentionally not modified because the owner restricted ChatGPT work to the isolated working folder.
+## 3D conversion pipeline
 
-## Owner decision needed
-None for the working build. Promotion to the original project requires explicit owner approval after review.
+The three conversion references were committed to the feature branch and sent to the selected to3D workflow as high-quality glTF/game jobs. URL validation succeeded, while the generation endpoint returned a backend `400 Failed to generate 3D model` during this run. The live game therefore uses its polished procedural Three.js hero models as the reliable fallback; the references and insertion points remain ready for generated glTF replacements when the service accepts jobs again.
+
+## Verification
+
+- Inline game JavaScript parse check: passed.
+- Vinext production build: passed.
+- ESLint: passed.
+- Node integration and artifact tests: passed.
+
+## Branch
+
+`codex/3d-webapp-upgrade-2026-08-24`

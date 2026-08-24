@@ -1,21 +1,13 @@
-# NEXT_TASK.md — Barnyard Abduction
+# Next Task
 
-## Historical task preserved by status
-The prior active task was S06 — Tractor Beam, with an instruction to stop after that slice. The owner’s later direct one-shot directive on 2026-08-23 explicitly superseded that execution boundary for the ChatGPT working copy. The historical S06 scope remains documented in the original copied revision/history and was not used as a stop condition.
+## Integrate generated glTF hero models
 
-## Current task state
-`BA-1.0.0-oneshot` has been built to REVIEW_READY in the isolated ChatGPT workspace.
+When the to3D generation endpoint resumes accepting jobs:
 
-## Next required action
-Device/runtime review, not another blind feature pass:
-1. Open the working `barnyard-abduction.html` on iPhone Safari.
-2. Check portrait and landscape touch layout.
-3. Verify joystick + beam + boost + scout + altitude simultaneous touch behavior.
-4. Verify scout shows the entire boundary plus margin.
-5. Verify farm hero visuals, UFO clearance, radar accuracy, beam lock/lift/cancel, farmer abduction/respawn, audio unlock, mission success/failure, campaign unlock/replay, save/reload and Cheat Lab.
-6. Record actual device model/browser and observed FPS/thermal behavior before marking FINALIZED.
+1. Convert `public/assets/concepts/ufo-to3d.png`, `cow-to3d.png`, and `barn-to3d.png` as high-quality game glTF assets.
+2. Compress textures and geometry for mobile delivery.
+3. Load each model behind the current procedural fallback and preserve collision proxies, animation anchors, and beam emitter alignment.
+4. Verify silhouettes in chase and scout cameras at HD, Balanced, and Battery settings.
+5. Record frame-time and memory results before enabling imported models by default.
 
-## Assumptions
-- The owner’s one-shot prompt is the active execution authority for this working copy.
-- The original `/Games/Barnyard Abduction` remains protected and is not a promotion target until explicit owner approval.
-- Because usable WebGL headless execution was unavailable in the container, static checks are evidence of code/package integrity, not proof of device rendering quality.
+Do not expand to another map until the converted hero assets meet the established Map 1 visual and performance bar.

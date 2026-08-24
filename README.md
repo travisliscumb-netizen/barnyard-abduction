@@ -1,42 +1,47 @@
-# Barnyard Abduction — ChatGPT Working Build
+# Barnyard Abduction
 
-## Canonical working file
-`barnyard-abduction.html`
+A touch-first 3D arcade game built around one polished vertical slice: pilot a UFO over Rolling Acres Farm, lock the tractor beam onto six animal species, dodge the farmer, and complete the abduction before time expires.
 
-Build: `BA-1.0.0-oneshot`
-Date: 2026-08-23
-Architecture: single self-contained UTF-8 HTML with embedded Three.js r128.
-Primary target: iPhone Safari, touch-first; keyboard fallback included.
+## Play
 
-## Working-scope rule
-This repository and `/Games/ChatGPT Barnyard Abduction` are the ChatGPT implementation workspace. The original `/Games/Barnyard Abduction` Dropbox folder is intentionally untouched.
+- Touch: left stick to fly, hold **Tractor Beam** to abduct, **Boost** for speed, and **Scout** for the full-farm camera.
+- Keyboard: `WASD` or arrow keys to fly, `Space` to beam, `Shift` to boost, `E` to scout, and `Q`/`R` to change altitude.
+- The HUD includes score, combo scoring, mission timer, hull, target reticle, and radar.
 
-## What is implemented in the working build
-- Ten-map linear campaign shell: Farm, Small Town, Campground, Rural Town, City, Military Base, Coastal Harbor, Desert Research Facility, Snowy Mountain Area, Space Launch Complex.
-- Data-driven mission goals/timers/target rosters/opposition.
-- Bright stylized procedural 3D world generation with distinct map palettes/landmarks.
-- Farm benchmark: 425×425 property, white fence, authored farmhouse/barn, field/furrows, tractors, pond, windmill, orchard/grove, curved dirt routes, distant countryside.
-- Touch joystick flight with momentum, boost energy, altitude controls (4–35), collision/boundary handling, chase camera, hold-to-scout full-map framing.
-- Layered UFO and tractor beam with search/lock/lift/capture states, beam energy, target resistance, stable lock, capture feedback, and farmer abduction on Farm.
-- Distinct procedural animal models and species tuning for all target types in the campaign.
-- Shared opposition AI framework with map-role visual profiles, alert/chase/fire states, pooled cartoon projectiles, shields, danger state, abduction/respawn support on Farm.
-- Score, combo window/cap, mission ratings, star coins, linear unlocks, replay, five permanent upgrades.
-- Always-visible HUD with score, timer, target count, shield bar, alert state, beam state/progress, boost meter, circular 2D radar, cheat indicator, pause.
-- Versioned localStorage save schema with defensive merge/migration and reset.
-- 25-entry Cheat Lab with compatibility handling and device/quality population caps.
-- Procedural Web Audio SFX/music pulses with calm/danger variation; critical states remain visible without audio.
-- Responsive portrait/landscape UI, safe-area handling, reduced-motion setting, quality settings, multi-touch hold controls and keyboard help.
+## Visual and game systems
 
-## Controls
-Touch: left joystick = movement; BEAM = hold to capture; BOOST = hold; SCOUT = hold; ▲/▼ = altitude; pause button = pause.
+- Detailed procedural UFO, barn, farmhouse, windmill, pond, field, road network, fencing, trees, and distant scenery.
+- Eighteen animals across cow, horse, sheep, pig, chicken, and goat species.
+- Physically based materials, ACES tone mapping, sRGB output, soft shadows, beam lighting, particles, impact flashes, and adaptive pixel density.
+- Auto, HD, Balanced, and Battery quality modes.
+- Touch-first controls with keyboard fallbacks.
+- Synthesized launch, beam, capture, impact, and result audio with a mute toggle.
+- Reliable replay reset and locally persisted best score.
 
-Keyboard: WASD/arrows = movement; Space = beam; Shift = boost; Q = scout; R/F = altitude; Esc = pause.
+## App structure
 
-## Verification performed in this environment
-- Custom JavaScript passed `node --check`.
-- HTML parsed successfully with Python `html.parser`.
-- Static release checks passed for: embedded Three.js r128, two balanced script tags, no external script/image dependencies, ten-map registry, 25-cheat registry, five upgrades, radar, altitude controls, versioned save schema, self-test hook, and no TODO markers.
-- Final file SHA-256 recorded in `REVIEW_QUEUE.md`.
+- `app/page.tsx` — full-screen game host and cinematic boot layer.
+- `public/game.html` — self-contained Three.js game runtime.
+- `public/og.png` — launch/social key art.
+- `public/assets/concepts/` — conversion-ready cow, UFO, and barn model references.
+- `public/assets/reference/` — canonical Dropbox reference art used for layout and style alignment.
+- `docs/SOURCE_MANIFEST.md` — source discovery and provenance summary.
+- `BUILD_REPORT.md` — implementation and verification report.
 
-## Not verified here
-The available Chromium installation could not initialize a usable headless graphics backend in this container, so WebGL runtime rendering and device FPS were not truthfully measured here. iPhone Safari portrait/landscape play, touch feel, audio unlock, visual clipping and sustained FPS remain owner/device review items. Do not mark the build FINALIZED until those are checked.
+## Development
+
+Requires Node.js 22.13 or newer.
+
+```bash
+npm install
+npm run dev
+```
+
+Verification:
+
+```bash
+npm run lint
+npm test
+```
+
+The app is packaged with Vinext for OpenAI Sites. The game itself remains a static route at `/game.html`, wrapped by the main application route for metadata, loading state, and installable-web-app behavior.
